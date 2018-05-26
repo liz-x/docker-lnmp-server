@@ -28,13 +28,13 @@ services:
     #     networks:
     #                     - net-web-server
 
-    php:
-        build:          ./php72/
+    php-fpm:
+        build:          ./php72/fpm/
         volumes:
                         - ~/data/www/:/data/www/:rw
                         - ~/data/log/:/data/log/:rw
-                        - ./conf/php72/php.ini:/usr/local/etc/php/php.ini:ro
-                        - ./conf/php72/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+                        - ./conf/php/php.ini:/usr/local/etc/php/php.ini:ro
+                        - ./conf/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
                         - ./site-test/web/:/data/www/site-test:ro
         networks:
                         - net-web-server

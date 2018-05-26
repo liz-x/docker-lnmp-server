@@ -2,6 +2,7 @@ FROM php:7.1-fpm
 
 COPY ./sources.list.stretch /etc/apt/sources.list
 
+# https://github.com/docker-library/php/blob/f504394473ea762a02a707325a9114df02987e71/7.1/alpine3.4/fpm/Dockerfile
 # Extensions: ctype, dom, fileinfo, ftp, hash, iconv, json, pdo, pdo_sqlite, session,
 # tokenizer, simplexml, xml, xmlreader, xmlwriter and phar are bundled and compiled into
 # PHP by default. If missing, install them directly by `docker-php-ext-install extension_name`
