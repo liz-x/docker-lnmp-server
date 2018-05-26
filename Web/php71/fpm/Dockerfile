@@ -57,7 +57,8 @@ RUN docker-php-ext-install mysqli \
 #    && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
 #    && docker-php-ext-install ldap
 
-RUN docker-php-ext-install mcrypt
+RUN docker-php-ext-install mcrypt \
+    && docker-php-ext-enable mcrypt
 
 RUN cd /tmp \
     && wget http://pecl.php.net/get/redis-3.1.6.tgz \
@@ -74,7 +75,6 @@ RUN cd /tmp \
     && pecl install xdebug-2.6.0.tgz \
     && :\
     && :\
-    && docker-php-ext-enable mcrypt \
     && docker-php-ext-enable redis \
     && docker-php-ext-enable imagick \
     && docker-php-ext-enable memcached \
