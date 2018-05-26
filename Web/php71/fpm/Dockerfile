@@ -57,13 +57,13 @@ RUN docker-php-ext-install mysqli \
 #    && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
 #    && docker-php-ext-install ldap
 
+RUN docker-php-ext-install mcrypt
+
 RUN cd /tmp \
-    && wget http://pecl.php.net/get/mcrypt-1.0.1.tgz \
     && wget http://pecl.php.net/get/redis-3.1.6.tgz \
     && wget http://pecl.php.net/get/imagick-3.4.3.tgz \
     && wget http://pecl.php.net/get/memcached-3.0.4.tgz  \
     && wget http://pecl.php.net/get/xdebug-2.6.0.tgz \
-    && pecl install mcrypt-1.0.1.tgz \
     && :\
     && pecl install redis-3.1.6.tgz \
     && :\
