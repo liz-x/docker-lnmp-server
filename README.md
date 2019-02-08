@@ -6,7 +6,7 @@
 cd /
 
 # 拉取项目
-git clone git@github.com:liz-x/docker-server.git websvr
+git clone https://github.com/liz-x/docker-server.git websvr
 cd websvr
 rm -rf .git
 
