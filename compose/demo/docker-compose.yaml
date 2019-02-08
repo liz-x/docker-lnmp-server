@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+    php-fpm:
+        image:          registry.cn-hangzhou.aliyuncs.com/xt/php:7.2-fpm
+        container_name: php-fpm
+        volumes:
+                        - /websvr/www/:/websvr/www/
+                        - /websvr/log/:/websvr/log/
+                        - ../conf/php/php.ini.prod:/usr/local/etc/php/php.ini:ro
+                        - ../conf/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+        networks:
+                        - net-web-server
+
+    nginx:
+        image:          nginx:1.12.2-alpine
+        container_name: nginx
+        ports:
+                        - 80:80
+                        - 8080:8080
+                        - 443:443
+        volumes:
+                        - /websvr/www/:/websvr/www/
+                        - /websvr/log/:/websvr/log/
+                        - /websvr/vhost/:/etc/nginx/conf.d/
+                        - ../conf/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+                        - ../conf/nginx/common.conf:/etc/nginx/common.conf:ro
+        networks:
+                        - net-web-server
+
+networks:
+    net-web-server:

@@ -1,24 +1,35 @@
 [PHP]
 
+; 基础配置
 short_open_tag = On
+date.timezone = PRC
+; 脚本的最大执行时间 单位：秒
+max_execution_time = 300
+
+; 上传配置
+upload_max_filesize = 20M
+max_file_uploads = 20
+
+; 异常抛出
 error_reporting = E_ALL
 display_errors = On
 display_startup_errors = On
-upload_max_filesize = 20M
-max_file_uploads = 20
-date.timezone = PRC
 
+; 日志
+log_errors = On
+log_errors_max_len = 1024
+error_log = /websvr/log/php/php-error.log
 
 [Xdebug]
 
-;调试器的关键字，在Chrome插件配置的时候要用到，PHPSTORM 有监听，用处不大
+; 调试器的关键字，在Chrome插件配置的时候要用到，PHPSTORM 有监听，用处不大
 xdebug.idekey=PHPSTORM
 
-;显示错误信息
+; 显示错误信息
 xdebug.default_enable=on
-;函数调试
+; 函数调试
 xdebug.auto_trace=on
-xdebug.trace_output_dir=/data/log/xdebug
+xdebug.trace_output_dir=/websvr/log/xdebug
 xdebug.trace_output_name=trace.%c.%p
 
 ; 显示内存
@@ -33,7 +44,7 @@ xdebug.collect_vars=on
 ;开启性能分析
 xdebug.profiler_enable=on
 ;性能分析日志保存目录
-xdebug.profiler_output_dir=/data/log/xdebug
+xdebug.profiler_output_dir=/websvr/log/xdebug
 ;性能分析日志文件名称（格式：t时间,p进程id）
 xdebug.profiler_output_name=cachegrind.out.%s
 ;代码覆盖率
@@ -45,4 +56,4 @@ xdebug.remote_enable=on
 ; xdebug.remote_connect_back=on
 xdebug.remote_host=192.168.99.1
 xdebug.remote_port=9001
-xdebug.remote_log=/data/log/xdebug/remote.log
+xdebug.remote_log=/websvr/log/xdebug/remote.log
