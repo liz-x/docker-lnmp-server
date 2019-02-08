@@ -8,7 +8,7 @@ cd /
 # 拉取项目
 git clone https://github.com/liz-x/docker-server.git websvr
 cd websvr
-rm -rf .git
+rm -rf .git*
 
 # 系统初始化（ECS 版）
 sudo sh ./centosInit.sh
