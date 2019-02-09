@@ -23,6 +23,7 @@ sudo sh ./centosInit.sh
 ```shell
 # 项目目录
 /websvr/www # web 站点
+/websvr/ssl # cert key
 /websvr/log # svr 日志
 /websvr/vhost # 虚拟主机
 /websvr/script # 脚本
