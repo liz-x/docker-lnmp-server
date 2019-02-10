@@ -1,26 +1,26 @@
 # DOCKER-LNMP-SERVER
 
-## 新建 websvr
+# 说明
 
-``` shell
-cd /
+**centosInit.sh：**
+—— 系统初始化
 
-# 拉取项目
-git clone https://github.com/liz-x/docker-server.git websvr
-cd websvr
-
-# 删除 git 信息
-rm -rf .git*
-
-# 系统初始化（ECS 版）
-sudo sh ./centosInit.sh
-```
+- 更换 YUM 源
+- 安装 Docker
+- 安装 Docker-Compose —— 通过 YMAL 配置，定义和运行多个 Docker 应用的工具
 
 
 
-## 目录说明
+**Dockerfile：**
 
-```shell
+dockerfile/php72/Dockerfile
+本地构建镜像：docker build -t php-fpm:7.2 .
+
+
+
+**websvr 目录：**
+
+```sh
 # 项目目录
 /websvr/www # web 站点
 /websvr/ssl # cert key
@@ -41,9 +41,37 @@ sudo sh ./centosInit.sh
 
 
 
-## 启动服务
+**/websvr/compose：**
 
-``` shell
+存放 docker-compose.ymal，在 compose 目录中可以建立不同的服务，例如：
+
+- /websvr/compose/demo
+- /websvr/compose/nginx-proxy
+- /websvr/compose/api-gateway
+
+
+
+## 搭建服务
+
+### 初始化
+
+```sh
+cd /
+
+# 拉取项目
+git clone https://github.com/liz-x/docker-server.git websvr
+cd websvr
+
+# 删除 git 信息
+rm -rf .git*
+
+# 系统初始化（ECS 版）
+sudo sh ./centosInit.sh
+```
+
+### 启动 Demo
+
+```sh
 # Demo 服务
 cd /websrv/compose/demo
 docker-compose up -d
@@ -55,4 +83,3 @@ docker-compose up -d
 [root@zsky ~] curl localhost
 Hello World.
 ```
-
