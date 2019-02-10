@@ -6,14 +6,14 @@
 # https://opsx.alibaba.com/mirror
 # http://mirrors.aliyun.com/repo/
 
+# 安装 curl
+yum install -y curl
+
 # 备份 CentOS-Base.repo
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 
-# 安装 wget
-yum install -y wget
-
 # 使用阿里 YUM 源
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 
 # 清除 YUM 缓存 && 更新 YUM 缓存
 yum clean all && yum makecache
@@ -38,11 +38,13 @@ echo -e "*/1 * * * * chown -R www-data:www-data /websvr/;" >> /var/spool/cron/ro
 
 
 #### 安装 Docker ####
-cd /tmp/
 
 # 安装 Docker
 # 官方文档：https://docs.docker.com/install/linux/docker-ce/centos/
 # 阿里文档：https://yq.aliyun.com/articles/110806/
+
+cd /tmp/
+
 curl -fsSL https://get.docker.com | sh -s docker --mirror Aliyun
 sudo usermod -aG docker www-data
 
