@@ -5,6 +5,7 @@ services:
     php-fpm:
         image:          registry.cn-hangzhou.aliyuncs.com/xt/php:7.2-fpm
         container_name: php-fpm
+        restart:        always
         volumes:
                         - /websvr/www/:/websvr/www/
                         - /websvr/log/:/websvr/log/
@@ -16,6 +17,7 @@ services:
     nginx:
         image:          nginx:1.12.2-alpine
         container_name: nginx
+        restart:        always
         ports:
                         - 80:80
                         - 8080:8080

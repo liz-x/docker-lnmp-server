@@ -76,7 +76,7 @@ sudo sh ./centosInit.sh
 cd /websrv/compose/demo
 docker-compose up -d
 
-# 容器状态
+# 查看容器状态
 [root@zsky sky] docker-compose ps
 
 # 测试
