@@ -4,7 +4,7 @@
 short_open_tag = On
 date.timezone = PRC
 ; 脚本的最大执行时间 单位：秒
-max_execution_time = 300
+max_execution_time = 20
 
 ; 上传配置
 upload_max_filesize = 20M

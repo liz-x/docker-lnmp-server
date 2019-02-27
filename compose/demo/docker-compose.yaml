@@ -10,7 +10,7 @@ services:
                         - /websvr/www/:/websvr/www/
                         - /websvr/log/:/websvr/log/
                         - ../conf/php/php.ini.prod:/usr/local/etc/php/php.ini:ro
-                        - ../conf/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+                        - ../conf/php/www.conf.prod:/usr/local/etc/php-fpm.d/www.conf:ro
         networks:
                         - net-web-server
 
