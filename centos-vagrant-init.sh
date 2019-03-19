@@ -41,16 +41,11 @@ yum clean all && yum makecache
 
 
 #### 添加 www-data 组和用户 ####
-groupadd -g 33 www-data
+groupadd www-data
 
 # -s：指定用户所用的 shell，/sbin/nologin，表示不登录。
 # -M：不创建用户主目录
-useradd -u 33 -g www-data -s /sbin/nologin -M www-data
-
-# chown -R www-data:www-data /websvr/
-
-# echo -e "*/1 * * * * chown -R www-data:www-data /websvr/;" >> /var/spool/cron/root
-
+useradd -g www-data -s /sbin/nologin -M www-data
 
 #### 安装 Docker ####
 
