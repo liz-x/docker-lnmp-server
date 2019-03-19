@@ -2,7 +2,7 @@
 
 # 说明
 
-**centosInit.sh：**
+**centos-init.sh：**
 —— 系统初始化
 
 - 更换 YUM 源
@@ -66,7 +66,7 @@ cd websvr
 rm -rf .git*
 
 # 系统初始化（ECS 版）
-sudo sh ./centosInit.sh
+sudo sh ./centos-init.sh
 ```
 
 ### 启动 Demo
