@@ -81,25 +81,4 @@ RUN cd /tmp \
     && docker-php-ext-enable xdebug \
     && rm -rf /tmp/*.tgz
 
-RUN echo -e "\nset nu\nset t_Co=256" >> /etc/vim/vimrc && \
-    echo -e "\n\
-    alias vi='vim' \n\
-    alias ll='ls -al' \n\
-    alias la='ls -a' \n\
-    alias lw='ls -al | wc -l' \n\
-    \n\
-    alias ..='cd ..' \n\
-    \n\
-    alias findd='find -type d -name' \n\
-    alias findf='find -type f -name' \n\
-    \n\
-    alias grep='grep --color=auto' \n\
-    alias cmount='mount | column -t' \n\
-    alias meminfo='free -m -l -t' \n\
-    \n\
-    alias gz='tar -zxvf' \n\
-    \n\
-    export TERM=xterm-256color" >> ~/.bashrc && \
-    source ~/.bashrc
-
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
