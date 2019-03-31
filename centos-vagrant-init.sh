@@ -47,6 +47,7 @@ groupadd -g 33 www-data
 # -M：不创建用户主目录
 useradd -u 33 -g www-data -s /sbin/nologin -M www-data
 
+# 重要，否则 vagrant 共享目录中 www-data 用户无写权限
 sudo usermod -aG vagrant www-data
 
 #### 安装 Docker ####
@@ -58,6 +59,8 @@ sudo usermod -aG vagrant www-data
 cd /tmp/
 
 curl -fsSL https://get.docker.com | sh -s docker --mirror Aliyun
+
+# 重要，否则容器 VOLUME 中 www-data 用户无写权限
 sudo usermod -aG docker www-data
 
 sudo systemctl start docker

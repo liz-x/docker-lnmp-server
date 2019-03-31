@@ -43,6 +43,8 @@ echo -e "*/1 * * * * chown -R www-data:www-data /websvr/;" >> /var/spool/cron/ro
 cd /tmp/
 
 curl -fsSL https://get.docker.com | sh -s docker --mirror Aliyun
+
+# 重要，否则容器 VOLUME 中 www-data 用户无写权限
 sudo usermod -aG docker www-data
 
 sudo systemctl start docker
