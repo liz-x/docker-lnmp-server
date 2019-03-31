@@ -41,11 +41,13 @@ yum clean all && yum makecache
 
 
 #### 添加 www-data 组和用户 ####
-groupadd www-data
+groupadd -g 33 www-data
 
 # -s：指定用户所用的 shell，/sbin/nologin，表示不登录。
 # -M：不创建用户主目录
-useradd -g www-data -s /sbin/nologin -M www-data
+useradd -u 33 -g www-data -s /sbin/nologin -M www-data
+
+sudo usermod -aG vagrant www-data
 
 #### 安装 Docker ####
 
