@@ -52,10 +52,10 @@ RUN docker-php-ext-install gettext \
 RUN docker-php-ext-install mysqli \
     && docker-php-ext-install pdo_mysql
 
-#RUN apt-get install -y libldb-dev \
-#    && apt-get install -y libldap2-dev \
-#    && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
-#    && docker-php-ext-install ldap
+RUN apt-get install -y libldb-dev \
+    && apt-get install -y libldap2-dev \
+    && docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu \
+    && docker-php-ext-install ldap
 
 RUN cd /tmp \
     && wget http://pecl.php.net/get/mcrypt-1.0.1.tgz \
