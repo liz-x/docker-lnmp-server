@@ -61,17 +61,17 @@ RUN cd /tmp \
     && wget http://pecl.php.net/get/mcrypt-1.0.1.tgz \
     && wget http://pecl.php.net/get/redis-3.1.6.tgz \
     && wget http://pecl.php.net/get/imagick-3.4.3.tgz \
-    && wget http://pecl.php.net/get/memcached-3.0.4.tgz  \
-    && wget http://pecl.php.net/get/xdebug-2.6.0.tgz \
+    && wget http://pecl.php.net/get/memcached-3.1.3.tgz  \
+    && wget http://pecl.php.net/get/xdebug-2.7.1.tgz \
     && pecl install mcrypt-1.0.1.tgz \
     && :\
     && pecl install redis-3.1.6.tgz \
     && :\
     && pecl install imagick-3.4.3.tgz \
     && :\
-    && pecl install memcached-3.0.4.tgz  \
+    && pecl install memcached-3.1.3.tgz  \
     && :\
-    && pecl install xdebug-2.6.0.tgz \
+    && pecl install xdebug-2.7.1.tgz \
     && :\
     && :\
     && docker-php-ext-enable mcrypt \
