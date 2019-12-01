@@ -11,7 +11,7 @@ upload_max_filesize = 20M
 max_file_uploads = 20
 
 ; 异常抛出
-error_reporting = E_ALL
+error_reporting = E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED
 display_errors = On
 display_startup_errors = On
 
